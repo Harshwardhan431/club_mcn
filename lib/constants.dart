@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+
 var appList=[];
 var webList=[];
 var aiMlList=[];
@@ -30,124 +29,6 @@ const domainUrl="https://script.googleusercontent.com/macros/echo?user_c"
     "=Mi2cd3AGFeMBsPGMaAi-ZGB4ff7uLRwu-";
 
 
-List<DropdownMenuItem<String>> getCpList(){
-  List<DropdownMenuItem<String>> cpdropdownList=[];
-  for(int i=0;i<cpList.length;i++){
-    String v=cpList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    cpdropdownList.add(neItiem);
-  }
-  return cpdropdownList;
-}
-
-List<DropdownMenuItem<String>> getCyberScerList(){
-  List<DropdownMenuItem<String>> cyberSerdropdownList=[];
-  for(int i=0;i<cyberSecurityList.length;i++){
-    String v=cyberSecurityList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    cyberSerdropdownList.add(neItiem);
-  }
-  return cyberSerdropdownList;
-}
-
-List<DropdownMenuItem<String>> getCloudList(){
-  List<DropdownMenuItem<String>> clouddropdownList=[];
-  for(int i=0;i<cloudList.length;i++){
-    String v=cloudList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    clouddropdownList.add(neItiem);
-  }
-  return clouddropdownList;
-}
-
-List<DropdownMenuItem<String>> getDigitalPosterList(){
-  List<DropdownMenuItem<String>> digitalPosterdropdownList=[];
-  for(int i=0;i<digitalPosterList.length;i++){
-    String v=digitalPosterList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    digitalPosterdropdownList.add(neItiem);
-  }
-  return digitalPosterdropdownList;
-}
-
-List<DropdownMenuItem<String>> getVideoEditList(){
-  List<DropdownMenuItem<String>> videoEditdropdownList=[];
-  for(int i=0;i<videoEditList.length;i++){
-    String v=videoEditList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    videoEditdropdownList.add(neItiem);
-  }
-  return videoEditdropdownList;
-}
-
-List<DropdownMenuItem<String>> getAppList(){
-  List<DropdownMenuItem<String>> appdropdownList=[];
-  for(int i=0;i<appList.length;i++){
-    String v=appList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    appdropdownList.add(neItiem);
-  }
-  return appdropdownList;
-}
-
-List<DropdownMenuItem<String>> getWebList(){
-  List<DropdownMenuItem<String>> webdropdownList=[];
-  for(int i=0;i<webList.length;i++){
-    String v=webList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    webdropdownList.add(neItiem);
-  }
-  return webdropdownList;
-}
-
-List<DropdownMenuItem<String>> getAiMlList(){
-  List<DropdownMenuItem<String>> aimldropdownList=[];
-  for(int i=0;i<aiMlList.length;i++){
-    String v=aiMlList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    aimldropdownList.add(neItiem);
-  }
-  return aimldropdownList;
-}
-
-List<DropdownMenuItem<String>> getcontentList(){
-  List<DropdownMenuItem<String>> contentdropdownList=[];
-  for(int i=0;i<contentWriteList.length;i++){
-    String v=contentWriteList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    contentdropdownList.add(neItiem);
-  }
-  return contentdropdownList;
-}
-
-
 class CpPopUp extends StatefulWidget {
   const CpPopUp({Key? key}) : super(key: key);
 
@@ -161,6 +42,8 @@ class _CpPopUpState extends State<CpPopUp> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+        height: 250,
+          width: 100,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
@@ -188,17 +71,6 @@ List<Widget> getPickerCp(){
   return cpLists;
 }
 
-/*
-* DropdownButton(
-                value: cpList[0],//-----------
-                items: getCpList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedCpList=value.toString();//----------
-                  });
-                },)
-* */
-
 class CyberSer extends StatefulWidget {
   const CyberSer({Key? key}) : super(key: key);
 
@@ -212,37 +84,25 @@ class _CyberSerState extends State<CyberSer> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              CupertinoPicker(
-                  itemExtent: 32.0,
-                  onSelectedItemChanged: (select){
-                //selectedcyberSecurity=select.toString();
-                  },
-                  children: getPickerCyber()),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerCyber())
       ),
     );
   }
 }
-List<Widget> getPickerCyber(){
+List<Widget> getPickerCyber()
+{
   List<Widget> cyberList=[];
   print('-----------tttttttt-');
   for(var c in cyberSecurityList){
@@ -252,20 +112,6 @@ List<Widget> getPickerCyber(){
   return cyberList;
 }
 
-/*
-  List<DropdownMenuItem<String>> getCyberScerList(){
-  List<DropdownMenuItem<String>> cyberSerdropdownList=[];
-  for(int i=0;i<cyberSecurityList.length;i++){
-    String v=cyberSecurityList[i];
-    var neItiem = DropdownMenuItem(
-      child: Text(v),
-      value: v,
-    );
-    cyberSerdropdownList.add(neItiem);
-  }
-  return cyberSerdropdownList;
-}
-* */
 
 class Cloud extends StatefulWidget {
   const Cloud({Key? key}) : super(key: key);
@@ -280,37 +126,32 @@ class _CloudState extends State<Cloud> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: cloudList[0],//-----------
-                items: getCloudList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedcloud=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerCloud())
       ),
     );
   }
+}
+
+List<Widget> getPickerCloud(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in cloudList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class DigitPosterMarket extends StatefulWidget {
@@ -326,37 +167,33 @@ class _DigitPosterMarketState extends State<DigitPosterMarket> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: digitalPosterList[0],//-----------
-                items: getDigitalPosterList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedPoster=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerDigitalMarket())
       ),
     );
   }
+}
+
+
+List<Widget> getPickerDigitalMarket(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in digitalPosterList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class VideoEdit extends StatefulWidget {
@@ -372,37 +209,33 @@ class _VideoEditState extends State<VideoEdit> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: videoEditList[0],//-----------
-                items: getVideoEditList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedListVideoEdit=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerVideoEdit())
       ),
     );
   }
+}
+
+
+List<Widget> getPickerVideoEdit(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in videoEditList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class ContentWrite extends StatefulWidget {
@@ -418,37 +251,32 @@ class _ContentWriteState extends State<ContentWrite> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: contentWriteList[0],//-----------
-                items: getcontentList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedContentWrite=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerContentWrite())
       ),
     );
   }
+}
+
+List<Widget> getPickerContentWrite(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in contentWriteList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class AppPopUp extends StatefulWidget {
@@ -463,37 +291,32 @@ class _AppPopUpState extends State<AppPopUp> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: appList[0],//-----------
-                items: getAppList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedAppList=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerApp())
       ),
     );
   }
+}
+
+List<Widget> getPickerApp(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in appList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class WebPopUp extends StatefulWidget {
@@ -509,37 +332,32 @@ class _WebPopUpState extends State<WebPopUp> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton<String>(
-                value: webList[0],//-----------
-                items: getWebList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedWebList=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerWeb())
       ),
     );
   }
+}
+
+List<Widget> getPickerWeb(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in webList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
 }
 
 class AiMlPopUp extends StatefulWidget {
@@ -555,36 +373,31 @@ class _AiMlPopUpState extends State<AiMlPopUp> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: Colors.transparent,
       child: Container(
+          height: 250,
           width: 100,
-          height: 150,
           decoration: BoxDecoration(
             color: Color(0xFF2962FF),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('List Of Seniors',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),),
-              ),
-              DropdownButton(
-                value: aiMlList[0],//-----------
-                items: getAiMlList(),//---------
-                onChanged: (value){
-                  setState(() {
-                    selectedaiMl=value.toString();//----------
-                  });
-                },),
-            ],
-          )
+          child: CupertinoPicker(
+              looping: false,
+              useMagnifier: true,
+              itemExtent: 32,
+              backgroundColor: Colors.transparent,
+              onSelectedItemChanged: (value){},
+              children: getPickerAiml())
       ),
     );
   }
 }
 
+
+List<Widget> getPickerAiml(){
+  List<Widget> cyberList=[];
+  print('-----------tttttttt-');
+  for(var c in aiMlList){
+    cyberList.add(Text('$c'));
+  }
+  print(cyberList);
+  return cyberList;
+}

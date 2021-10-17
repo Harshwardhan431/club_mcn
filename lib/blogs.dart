@@ -1,11 +1,15 @@
+import 'dart:async';
+import 'webView_blog.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
+//String Blog1="https://pulzion.in/";
 String Blog1="https://pict.acm.org/#/blogdetail/5fecc49f4c6df9764299f72b";
 String Blog2="https://pict.acm.org/#/blogdetail/5fecc49f4c6df9764299f72c";
 String Blog3="https://pict.acm.org/#/blogdetail/5fecc49f4c6df9764299f72e";
+
 
 const colorizeColors = [
   Color(0xFF283593),
@@ -39,6 +43,8 @@ class Blogs extends StatefulWidget {
 }
 
 class _BlogsState extends State<Blogs> {
+  Completer<WebViewController> _controller=Completer<WebViewController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,16 +87,22 @@ class _BlogsState extends State<Blogs> {
                 child: Column(
                   children: [
                     BlogWidget(onTap: (){
-                      _launchedInApp(Blog1);
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return WebViewBlog(blog_url: Blog1,title: 'Linux Foundation',);
+                      }));
                     },
                       details: 'Hyperledger Internship(Linux Foundation) experience.',
                       date: 'Dec 27, 2020',heading: 'Linux Foundation',auther: '- Shivam Balikondwar',),
                     BlogWidget(onTap: (){
-                      _launchedInApp(Blog2);
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return WebViewBlog(blog_url: Blog2,title: 'Mitacs Globalink',);
+                      }));
                     },details: 'Bagging the Mitacs Globalink Research Internship',
                       date: 'Dec 20, 2020',heading: 'Mitacs Globalink',auther: '- Rishi Gondkar',),
                     BlogWidget(onTap: (){
-                      _launchedInApp(Blog3);
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return WebViewBlog(blog_url: Blog3,title: 'Form a rescinded offer',);
+                      }));
                     },details: 'From a rescinded offer to presenting a paper at the International Conference',
                       date: 'Nov 15, 2020',heading: 'Form a rescinded offer',auther: '- Yogesh Kulkarni',),
                   ],

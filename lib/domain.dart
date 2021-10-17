@@ -141,14 +141,28 @@ class _DomainState extends State<Domain> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: Text(
-                              'Which Domain are you \nlooking for?',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 25,
+                            child: RichText(
+                              text: TextSpan(
+                                text: 'Which',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 25,
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: ' Domain ',style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 25,
+                                  )),
+                                  TextSpan(text: 'are you looking',style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 25,
+                                  ),),
+                                ],
                               ),
-
                             ),
                           ),
                           SizedBox(
@@ -291,7 +305,7 @@ class DomainWidget extends StatelessWidget {
                   width: 100,
                   child: Center(
                     child: Text(
-                      'Resource',
+                      'Description',
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xFFBF360C),
